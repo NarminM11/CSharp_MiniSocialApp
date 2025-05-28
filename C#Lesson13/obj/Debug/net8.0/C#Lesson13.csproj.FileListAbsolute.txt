@@ -1,0 +1,15 @@
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\bin\Debug\net8.0\C#Lesson13.exe
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\bin\Debug\net8.0\C#Lesson13.deps.json
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\bin\Debug\net8.0\C#Lesson13.runtimeconfig.json
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\bin\Debug\net8.0\C#Lesson13.dll
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\bin\Debug\net8.0\C#Lesson13.pdb
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\obj\Debug\net8.0\C#Lesson13.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\obj\Debug\net8.0\C#Lesson13.AssemblyInfoInputs.cache
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\obj\Debug\net8.0\C#Lesson13.AssemblyInfo.cs
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\obj\Debug\net8.0\C#Lesson13.csproj.CoreCompileInputs.cache
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\obj\Debug\net8.0\C#Lesson13.sourcelink.json
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\obj\Debug\net8.0\C#Lesson13.dll
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\obj\Debug\net8.0\refint\C#Lesson13.dll
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\obj\Debug\net8.0\C#Lesson13.pdb
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\obj\Debug\net8.0\C#Lesson13.genruntimeconfig.cache
+C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\obj\Debug\net8.0\ref\C#Lesson13.dll
