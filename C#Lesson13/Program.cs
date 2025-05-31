@@ -1,37 +1,68 @@
 ﻿using System;
 using System.IO;
 using System.Text.Json;
-using C_Lesson13.Models;
+using AdminNamespace;
+using UserNamespace;
+using UserManagerNamespace;
+using PostNamespace;
+using System.Collections.Generic;
 
 public class HelloWorld
 {
+    static int ShowArrowMenu(string[] options)
+    {
+        int selected = 0;
+        ConsoleKeyInfo key;
+
+        do
+        {
+            Console.Clear();
+            Console.WriteLine("Use ↑ ↓ arrows to navigate, Enter to select:\n");
+
+            for (int i = 0; i < options.Length; i++)
+            {
+                if (i == selected)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"> {options[i]}");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.WriteLine($"  {options[i]}");
+                }
+            }
+
+            key = Console.ReadKey(true);
+
+            if (key.Key == ConsoleKey.UpArrow)
+                selected = (selected == 0) ? options.Length - 1 : selected - 1;
+            else if (key.Key == ConsoleKey.DownArrow)
+                selected = (selected == options.Length - 1) ? 0 : selected + 1;
+
+        } while (key.Key != ConsoleKey.Enter);
+
+        return selected;
+    }
+
     public static void Main(string[] args)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         UserManager userManager = new UserManager();
-
         List<Post> posts = new List<Post>();
 
         while (true)
         {
-            Console.WriteLine("\nChoose: 1. Admin  2. User  0. Exit");
-            Console.Write("Your choice: ");
-            string input = Console.ReadLine();
-            int choice;
+            string[] mainOptions = { "Admin", "User", "Exit" };
+            int choice = ShowArrowMenu(mainOptions); // 0=Admin, 1=User, 2=Exit
 
-            if (!int.TryParse(input, out choice))
-            {
-                Console.WriteLine("Please enter a valid number!");
-                continue;
-            }
-
-            if (choice == 0)
+            if (choice == 2)
             {
                 Console.WriteLine("Exiting...");
                 break;
             }
 
-            if (choice == 1)
+            if (choice == 0) // admin panel
             {
                 Console.Write("Enter admin username: ");
                 string username = Console.ReadLine();
@@ -43,16 +74,12 @@ public class HelloWorld
                 if (result is Admin admin)
                 {
                     Console.WriteLine("✅ Admin login successful!");
-
                     while (true)
                     {
-                        Console.WriteLine("\n1. Create new post");
-                        Console.WriteLine("2. Show all posts");
-                        Console.WriteLine("0. Exit");
-                        Console.Write("Choice: ");
-                        string input3 = Console.ReadLine();
+                        string[] adminOptions = { "Create new post", "Show all posts", "Exit" };
+                        int adminChoice = ShowArrowMenu(adminOptions);
 
-                        if (input3 == "1")
+                        if (adminChoice == 0)
                         {
                             Console.Write("Title: ");
                             string title = Console.ReadLine();
@@ -68,18 +95,16 @@ public class HelloWorld
 
                             Console.WriteLine("✅ Post created.");
                         }
-                        else if (input3 == "2")
+                        else if (adminChoice == 1)
                         {
                             admin.ShowAllPosts();
+                            Console.WriteLine("\nPress any key to return...");
+                            Console.ReadKey();
                         }
-                        else if (input3 == "0")
+                        else if (adminChoice == 2)
                         {
                             Console.WriteLine("Returning to main menu...");
                             break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid choice!");
                         }
                     }
                 }
@@ -88,29 +113,21 @@ public class HelloWorld
                     Console.WriteLine("❌ Login failed.");
                 }
             }
-            else if (choice == 2)
+            else if (choice == 1) // user
             {
-                Console.Write("Do you want to 1. Sign Up  or 2. Login: ");
-                string input2 = Console.ReadLine();
-                int acc_choice;
-
-                if (!int.TryParse(input2, out acc_choice) || (acc_choice != 1 && acc_choice != 2))
-                {
-                    Console.WriteLine("Please enter 1 or 2!");
-                    continue;
-                }
+                string[] loginOptions = { "Sign Up", "Login" };
+                int acc_choice = ShowArrowMenu(loginOptions);
 
                 Console.Write("Enter username: ");
                 string username = Console.ReadLine();
-
                 Console.Write("Enter password: ");
                 string password = Console.ReadLine();
 
-                if (acc_choice == 1)
+                if (acc_choice == 0)
                 {
                     userManager.SignUp(username, password);
                 }
-                else if (acc_choice == 2)
+                else if (acc_choice == 1)
                 {
                     object result = userManager.SignIn(username, password);
 
@@ -120,47 +137,43 @@ public class HelloWorld
 
                         while (true)
                         {
-                            Console.WriteLine("\nUser Menu:");
-                            Console.WriteLine("1. Like post");
-                            Console.WriteLine("2. view deatiled posts");
-                            Console.WriteLine("0. Exit");
-                            Console.Write("Choice: ");
-                            string userChoice = Console.ReadLine();
+                            string[] userOptions = {
+                                "Like post",
+                                "View detailed posts",
+                                "Show all posts shortly",
+                                "Exit"
+                            };
+                            int userChoice = ShowArrowMenu(userOptions);
 
-                            if (userChoice == "1")
+                            if (userChoice == 0)
                             {
-
                                 user.LikePost();
                             }
-                            else if (userChoice == "2")
+                            else if (userChoice == 1)
                             {
-                                string postId = user.LookSpecificPost();
+                                int? postId = user.LookSpecificPost();
 
-                                if (!string.IsNullOrEmpty(postId))
+                                if (postId.HasValue)
                                 {
                                     Console.Write("Do you want to like this post? (yes/no): ");
                                     string likeChoice = Console.ReadLine().Trim().ToLower();
 
                                     if (likeChoice == "yes")
                                     {
-                                        user.LikeSpecificPost(postId);
+                                        user.LikeSpecificPost(postId.Value);
                                     }
                                 }
                             }
-
-                            else if (userChoice == "3")
+                            else if (userChoice == 2)
                             {
                                 user.ShowPostsShortly();
+                                Console.WriteLine("\nPress any key to return...");
+                                Console.ReadKey();
                             }
-
-                            else if (userChoice == "0")
+                            else if (userChoice == 3)
                             {
                                 Console.WriteLine("Returning to main menu...");
                                 break;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Invalid input.");
                             }
                         }
                     }
@@ -168,11 +181,6 @@ public class HelloWorld
                     {
                         Console.WriteLine("❌ Login failed.");
                     }
-                }
-
-                else
-                {
-                    Console.WriteLine("Invalid choice. Please choose 1, 2 or 0.");
                 }
             }
         }

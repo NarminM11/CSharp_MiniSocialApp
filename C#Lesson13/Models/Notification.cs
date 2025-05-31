@@ -1,17 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
-namespace C_Lesson13.Models
+namespace NotificationNamespace
 {
     public class Notification
     {
-        public int Id { get; set; }
+        public int No { get; set; }
         public string Text { get; set; }
-
         public DateTime DateTime { get; set; }
         public string FromUser { get; set; }
+
+        private static List<Notification> Notifications = new List<Notification>();
+        private static readonly string FilePath = @"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\notifications.json";
+
+        public Notification() { }
+
+        public Notification(int no, string text, string fromUser)
+        {
+            No = no;
+            Text = text;
+            DateTime = DateTime.Now;
+            FromUser = fromUser;
+        }
+
+        public void AddNotification()
+        {
+            Notifications.Add(this);
+            string line = $"{No} | {Text} | {DateTime} | {FromUser}";
+            File.AppendAllText(FilePath, line + Environment.NewLine);
+            Console.WriteLine("🔔 Notification sent: " + line);
+        }
+
+        public static List<Notification> GetAllNotifications()
+        {
+            return Notifications;
+        }
     }
 }

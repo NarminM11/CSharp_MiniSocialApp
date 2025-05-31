@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using C_Lesson13.Models;
-namespace C_Lesson13.Models
+using UserNamespace;
+using PostNamespace;
+using NotificationNamespace;
+using EmailhelperNamespace;
+namespace AdminNamespace
 {
     public class Admin
     {
@@ -23,12 +26,52 @@ namespace C_Lesson13.Models
         public Admin() { }
         public void CreatePost(string title, string content, DateTime CreationDateTime)
         {
-            Post newPost = new Post(title, content, CreationDateTime);
+            string path = @"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\posts.json";
+
+            if (posts == null)
+            {
+                posts = new List<Post>();
+            }
+
+            if (File.Exists(path))
+            {
+                var jsonData = File.ReadAllText(path);
+                if (!string.IsNullOrWhiteSpace(jsonData))
+                {
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    var existingPosts = JsonSerializer.Deserialize<List<Post>>(jsonData, options);
+
+                    if (existingPosts != null)
+                    {
+                        posts = existingPosts;
+                    }
+                }
+            }
+
+            int nextNo = posts.Count + 1;
+            Post newPost = new Post(title, content, CreationDateTime, nextNo);
             posts.Add(newPost);
-            Console.WriteLine("Post aded succesfully");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n✅ New post successfully created and written to file!");
+            Console.ResetColor();
+            Console.WriteLine("\nPress any key to return to the main menu...");
+            Console.ReadKey();
 
+            var saveOptions = new JsonSerializerOptions { WriteIndented = true };
+            var updatedJson = JsonSerializer.Serialize(posts, saveOptions);
+            File.WriteAllText(path, updatedJson);
+            EmailHelper.SendEmailToAdmin("Post created", $"New post created: Title={title}");
 
+            Notification notification = new Notification
+            {
+                No = posts.Count,
+                Text = $"New post created: {title}",
+                DateTime = CreationDateTime,
+                FromUser = username
+            };
+            notification.AddNotification();
         }
+
 
         public List<Post> GetAllPosts()
         {
@@ -60,6 +103,7 @@ namespace C_Lesson13.Models
                 foreach (var post in posts)
                 {
                     Console.WriteLine("────────────────────────────");
+                    Console.WriteLine($"🔢 No: {post.No}");
                     Console.WriteLine($"📌 Title: {post.Title}");
                     Console.WriteLine($"📝 Content: {post.Content}");
                     Console.WriteLine($"📅 Date: {post.CreationDateTime}");

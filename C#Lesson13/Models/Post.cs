@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C_Lesson13.Models
+namespace PostNamespace
 {
     public class Post
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string Title { get; set; }
+
+        public int No {  get; set; }
 
         public string Content { get; set; }
 
@@ -23,21 +25,17 @@ namespace C_Lesson13.Models
 
         }
 
-        public Post(string ıd, string title,string content, DateTime creationDateTime, int likeCount, int viewCount)
+        public Post(string title, string content, DateTime creationDateTime, int no)
         {
-            Id = ıd;
+            Id = Guid.NewGuid();
             Title = title;
             Content = content;
             CreationDateTime = creationDateTime;
-            LikeCount = likeCount;
-            ViewCount = viewCount;
+            No = no;
+            LikeCount = 0;
+            ViewCount = 0;
         }
-        public Post(string id, string content, DateTime creationDateTime)
-        {
-            Id = id;
-            Content = content;
-            CreationDateTime = creationDateTime;
-        }
+
         public void DisplayPost()
         {
             Console.WriteLine($"Title-{Title}");

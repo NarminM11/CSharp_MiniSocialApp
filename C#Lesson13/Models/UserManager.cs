@@ -4,101 +4,101 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using C_Lesson13.Models;
+using AdminNamespace;
+using UserNamespace;
 
-namespace C_Lesson13.Models
+namespace UserManagerNamespace;
+
+public class UserManager
 {
-    public class UserManager
+    public List<User> _users { get; set; }
+
+
+    public UserManager()
     {
-        public List<User> _users { get; set; }
+        string path = @"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\users.json";
 
-
-        public UserManager()
+        if (File.Exists(path))
         {
-            string path = @"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\users.json";
-
-            if (File.Exists(path))
-            {
-                var jsonData = File.ReadAllText(path);
-                _users = JsonSerializer.Deserialize<List<User>>(jsonData);
-            }
-            else
-            {
-                _users = new List<User>();
-            }
+            var jsonData = File.ReadAllText(path);
+            _users = JsonSerializer.Deserialize<List<User>>(jsonData);
         }
-
-        public int SearchUser(string username)
+        else
         {
-            for (int i = 0; i < _users.Count; i++)
-            {
-                if (_users[i].Username == username)
-                {
-                    return i;
-                }
-
-            }
-            return -1;
+            _users = new List<User>();
         }
+    }
 
-        public void SignUp(string username, string password)
+    public int SearchUser(string username)
+    {
+        for (int i = 0; i < _users.Count; i++)
         {
-            if (SearchUser(username) != -1)
+            if (_users[i].Username == username)
             {
-                Console.WriteLine("This user already exists.");
-                return;
+                return i;
             }
-
-            if (username.Length <= 10)
-            {
-                Console.WriteLine("Username should be longer than 10 characters.");
-                return;
-            }
-
-            if (password.Length <= 8)
-            {
-                Console.WriteLine("Password should be more than 8 characters.");
-                return;
-            }
-
-            User newUser = new User()
-            {
-                Username = username,
-                Password = password,
-            };
-
-            _users.Add(newUser);
-            Console.WriteLine("User successfully signed up.");
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            var jsonData = JsonSerializer.Serialize(_users, options);
-            File.WriteAllText(@"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\users.json", jsonData);
 
         }
+        return -1;
+    }
 
-
-        public object SignIn(string username, string password)
+    public void SignUp(string username, string password)
+    {
+        if (SearchUser(username) != -1)
         {
-            if (username == "admin" && password == "admin1234")
-            {
-                return new Admin { username = "admin", Password = "admin1234" };
-            }
+            Console.WriteLine("This user already exists.");
+            return;
+        }
 
-            int index = SearchUser(username);
-            if (index == -1)
-            {
-                Console.WriteLine("User not found.");
-                return null;
-            }
+        if (username.Length <= 10)
+        {
+            Console.WriteLine("Username should be longer than 10 characters.");
+            return;
+        }
 
-            if (_users[index].Password == password)
-            {
-                return _users[index]; 
-            }
-            else
-            {
-                Console.WriteLine("Wrong password.");
-                return null;
-            }
+        if (password.Length <= 8)
+        {
+            Console.WriteLine("Password should be more than 8 characters.");
+            return;
+        }
+
+        User newUser = new User()
+        {
+            Username = username,
+            Password = password,
+        };
+
+        _users.Add(newUser);
+        Console.WriteLine("User successfully signed up.");
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        var jsonData = JsonSerializer.Serialize(_users, options);
+        File.WriteAllText(@"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\users.json", jsonData);
+
+    }
+
+
+    public object SignIn(string username, string password)
+    {
+        if (username == "admin" && password == "admin1234")
+        {
+            return new Admin { username = "admin", Password = "admin1234" };
+        }
+
+        int index = SearchUser(username);
+        if (index == -1)
+        {
+            Console.WriteLine("User not found.");
+            return null;
+        }
+
+        if (_users[index].Password == password)
+        {
+            return _users[index]; 
+        }
+        else
+        {
+            Console.WriteLine("Wrong password.");
+            return null;
         }
     }
 }

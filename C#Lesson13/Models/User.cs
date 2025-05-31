@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using C_Lesson13.Models;
-namespace C_Lesson13.Models
+using EmailhelperNamespace;
+using NotificationNamespace;
+using PostNamespace;
+namespace UserNamespace
 {
     public class User
     {
@@ -16,6 +18,7 @@ namespace C_Lesson13.Models
         public int Age { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public static User CurrentUser { get; set; }
 
         public User() { }
 
@@ -26,7 +29,7 @@ namespace C_Lesson13.Models
         }
 
 
-        public string LookSpecificPost()
+        public int? LookSpecificPost()
         {
             string path = @"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\posts.json";
 
@@ -50,35 +53,61 @@ namespace C_Lesson13.Models
                 Console.WriteLine("Posts available to view:");
                 foreach (var post in posts)
                 {
-                    Console.WriteLine($"Id: {post.Id}, Title: {post.Title}, Likes: {post.LikeCount}");
+                    Console.WriteLine($"No: {post.No}, Title: {post.Title}, Likes: {post.LikeCount}");
                 }
 
-                Console.Write("Enter post id to view: ");
+                Console.Write("Enter post number to view: ");
                 string postId = Console.ReadLine().Trim();
 
-                var foundPost = posts.FirstOrDefault(p => p.Id.Equals(postId, StringComparison.OrdinalIgnoreCase));
-
-                if (foundPost != null)
+                if (int.TryParse(postId, out int postNo))
                 {
-                    foundPost.IncreaseViewCount();
+                    var foundPost = posts.FirstOrDefault(p => p.No == postNo);
 
-                    Console.WriteLine("\n──────────── POST DETAILS ────────────");
-                    Console.WriteLine($"📌 Title: {foundPost.Title}");
-                    Console.WriteLine($"📌 Content: {foundPost.Content}");
-                    Console.WriteLine($"📅 Created: {foundPost.CreationDateTime}");
-                    Console.WriteLine($"❤️ Likes: {foundPost.LikeCount}");
-                    Console.WriteLine($"👁️ Views: {foundPost.ViewCount}");
-                    Console.WriteLine("──────────────────────────────────────");
+                    if (foundPost != null)
+                    {
+                        foundPost.IncreaseViewCount();
 
-                    File.WriteAllText(path, JsonSerializer.Serialize(posts, options));
+                        Console.WriteLine("\n──────────── POST DETAILS ────────────");
+                        Console.WriteLine($"📌 No: {foundPost.No}");
+                        Console.WriteLine($"📌 Title: {foundPost.Title}");
+                        Console.WriteLine($"📌 Content: {foundPost.Content}");
+                        Console.WriteLine($"📅 Created: {foundPost.CreationDateTime}");
+                        Console.WriteLine($"❤️ Likes: {foundPost.LikeCount}");
+                        Console.WriteLine($"👁️ Views: {foundPost.ViewCount}");
+                        Console.WriteLine("──────────────────────────────────────");
 
-                    return foundPost.Id; //userin view elediyi postun id-si
+                        EmailHelper.SendEmailToAdmin("Post Viewed", $"User viewed post: ID={foundPost.Id}, Title={foundPost.Title}");
+                        File.WriteAllText(path, JsonSerializer.Serialize(posts, options));
+
+                        Notification notification = new Notification
+                        {
+                            Text = $"User viewed post: {foundPost.Title}",
+                            DateTime = DateTime.Now,
+                            FromUser = this.Username 
+                        };
+                        notification.AddNotification();
+
+                        return foundPost.No; // userin baxdığı postun nömrəsi
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("❌ Post not found.");
+                        return null;
+                    
+                    }
+
+
                 }
+
+
                 else
                 {
-                    Console.WriteLine("❌ Post not found.");
+                    Console.WriteLine("❌ Invalid post number format.");
                     return null;
                 }
+
+
             }
             catch (Exception ex)
             {
@@ -114,36 +143,54 @@ namespace C_Lesson13.Models
                 foreach (var post in posts)
                 {
                     Console.WriteLine("────────────────────────────");
+                    Console.WriteLine($"📌 No: {post.No}");
                     Console.WriteLine($"📌 Title: {post.Title}");
-                    Console.WriteLine($"📌 Id: {post.Id}");
+                    Console.WriteLine($"📌 No: {post.No}");
                     Console.WriteLine($"❤️ Likes: {post.LikeCount}");
                 }
 
                 Console.WriteLine("────────────────────────────");
-                Console.Write("Enter post id that you want to like: ");
-                string postId = Console.ReadLine().Trim();
+                Console.Write("Enter post number that you want to like: ");
+                string inputNo = Console.ReadLine().Trim();
 
-                Post foundPost = null;
-                foreach (var p in posts)
+                if (int.TryParse(inputNo, out int postNo))
                 {
-                    if (p.Id.Equals(postId, StringComparison.OrdinalIgnoreCase))
+                    Post foundPost = null;
+                    foreach (var p in posts)
                     {
-                        foundPost = p;
-                        break;
+                        if (p.No == postNo)
+                        {
+                            foundPost = p;
+                            break;
+                        }
                     }
-                }
 
-                if (foundPost != null)
-                {
-                    foundPost.AddLike();
-                    Console.WriteLine($"\n✅ You liked the post '{foundPost.Title}'. Total likes: {foundPost.LikeCount}");
+                    if (foundPost != null)
+                    {
+                        foundPost.AddLike();
+                        Console.WriteLine($"\n✅ You liked the post '{foundPost.Title}'. Total likes: {foundPost.LikeCount}");
 
-                    var updatedJson = JsonSerializer.Serialize(posts, options);
-                    File.WriteAllText(path, updatedJson);
+                        var updatedJson = JsonSerializer.Serialize(posts, options);
+                        File.WriteAllText(path, updatedJson);
+
+                        Notification notification = new Notification
+                        {
+                            Text = $"User viewed post: {foundPost.Title}",
+                            DateTime = DateTime.Now,
+                            FromUser = this.Username
+                        };
+                        notification.AddNotification();
+
+                        EmailHelper.SendEmailToAdmin("Post Liked", $"User liked post: No={foundPost.No}, Title={foundPost.Title}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("❌ Post not found.");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("❌ Post not found.");
+                    Console.WriteLine("❌ Invalid post number format.");
                 }
             }
             catch (Exception ex)
@@ -152,7 +199,7 @@ namespace C_Lesson13.Models
             }
         }
 
-        public void LikeSpecificPost(string postId)
+        public void LikeSpecificPost(int postNo)
         {
             string path = @"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\posts.json";
 
@@ -172,15 +219,25 @@ namespace C_Lesson13.Models
                 };
 
                 var posts = JsonSerializer.Deserialize<List<Post>>(jsonData, options);
-                var foundPost = posts.FirstOrDefault(p => p.Id.Equals(postId, StringComparison.OrdinalIgnoreCase));
+                var foundPost = posts.FirstOrDefault(p => p.No == postNo);
 
                 if (foundPost != null)
                 {
                     foundPost.AddLike();
                     Console.WriteLine($"\n✅ You liked the post '{foundPost.Title}'. Total likes: {foundPost.LikeCount}");
 
+                    Notification notification = new Notification
+                    {
+                        Text = $"User viewed post: {foundPost.Title}",
+                        DateTime = DateTime.Now,
+                        FromUser = this.Username
+                    };
+                    notification.AddNotification();
+
+                    EmailHelper.SendEmailToAdmin("Post Liked", $"User liked post: No={foundPost.No}, Title={foundPost.Title}");
                     File.WriteAllText(path, JsonSerializer.Serialize(posts, options));
                 }
+
                 else
                 {
                     Console.WriteLine("❌ Post not found.");
@@ -217,10 +274,13 @@ namespace C_Lesson13.Models
                 foreach (var post in posts)
                 {
                     Console.WriteLine("────────────────────────────");
+                    Console.WriteLine($"📌 No: {post.No}");
                     Console.WriteLine($"📌 Title: {post.Title}");
                     Console.WriteLine($"📌 Id: {post.Id}");
                 }
                 Console.WriteLine("────────────────────────────\n");
+
+
             }
             catch (Exception ex)
             {
