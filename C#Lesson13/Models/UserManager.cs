@@ -76,36 +76,28 @@ namespace C_Lesson13.Models
         }
 
 
-        public bool SignIn(string username, string password)
+        public object SignIn(string username, string password)
         {
-            if (username == "admin")
+            if (username == "admin" && password == "admin1234")
             {
-                if (password == "admin1234")
-                {
-                    return true;
-                }
-                else
-                {
-                    Console.WriteLine("Wrong password.");
-                    return false;
-                }
+                return new Admin { username = "admin", Password = "admin1234" };
             }
 
             int index = SearchUser(username);
             if (index == -1)
             {
                 Console.WriteLine("User not found.");
-                return false;
+                return null;
             }
 
             if (_users[index].Password == password)
             {
-                return true;
+                return _users[index]; 
             }
             else
             {
                 Console.WriteLine("Wrong password.");
-                return false;
+                return null;
             }
         }
     }

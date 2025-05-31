@@ -43,5 +43,14 @@ namespace C_Lesson13.Models
             Console.WriteLine($"Title-{Title}");
             Console.WriteLine(Content);
         }
+
+        public void AddLike()
+        {
+            LikeCount++;
+        }
+        public void IncreaseViewCount()
+        {
+            ViewCount++;
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace C_Lesson13.Models
             return posts;
         }
 
-        public void ShowAllPosts()
+        public virtual void ShowAllPosts()
         {
             string path = @"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\posts.json";
 
@@ -63,6 +63,7 @@ namespace C_Lesson13.Models
                     Console.WriteLine($"📌 Title: {post.Title}");
                     Console.WriteLine($"📝 Content: {post.Content}");
                     Console.WriteLine($"📅 Date: {post.CreationDateTime}");
+                    Console.WriteLine($"📌 Id: {post.Id}");
                 }
                 Console.WriteLine("────────────────────────────\n");
             }

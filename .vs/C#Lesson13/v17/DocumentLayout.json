@@ -3,32 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\models\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\models\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\models\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\models\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\models\\posts.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\models\\posts.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\models\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\models\\users.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\models\\posts.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\models\\posts.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|c:\\users\\ferid\\desktop\\c#\\c#lesson13\\c#lesson13\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81FE096D-DA28-4A81-9F41-C2A09031D194}|C#Lesson13\\C#Lesson13.csproj|solutionrelative:c#lesson13\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,60 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "users.json",
-              "DocumentMoniker": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\users.json",
-              "RelativeDocumentMoniker": "C#Lesson13\\Models\\users.json",
-              "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\users.json",
-              "RelativeToolTip": "C#Lesson13\\Models\\users.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-28T16:28:43.113Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserManager.cs",
-              "DocumentMoniker": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\UserManager.cs",
-              "RelativeDocumentMoniker": "C#Lesson13\\Models\\UserManager.cs",
-              "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\UserManager.cs",
-              "RelativeToolTip": "C#Lesson13\\Models\\UserManager.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T16:19:44.985Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "posts.json",
-              "DocumentMoniker": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\posts.json",
-              "RelativeDocumentMoniker": "C#Lesson13\\Models\\posts.json",
-              "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\posts.json",
-              "RelativeToolTip": "C#Lesson13\\Models\\posts.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-28T15:45:19.887Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Post.cs",
-              "DocumentMoniker": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\Post.cs",
-              "RelativeDocumentMoniker": "C#Lesson13\\Models\\Post.cs",
-              "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\Post.cs",
-              "RelativeToolTip": "C#Lesson13\\Models\\Post.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T14:43:26.303Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 5,
@@ -100,35 +44,74 @@
               "RelativeDocumentMoniker": "C#Lesson13\\Models\\User.cs",
               "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\User.cs",
               "RelativeToolTip": "C#Lesson13\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T13:19:23.072Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Admin.cs",
-              "DocumentMoniker": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\Admin.cs",
-              "RelativeDocumentMoniker": "C#Lesson13\\Models\\Admin.cs",
-              "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\Admin.cs",
-              "RelativeToolTip": "C#Lesson13\\Models\\Admin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T13:17:18.543Z",
+              "DocumentIndex": 4,
+              "Title": "posts.json",
+              "DocumentMoniker": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\posts.json",
+              "RelativeDocumentMoniker": "C#Lesson13\\Models\\posts.json",
+              "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\posts.json",
+              "RelativeToolTip": "C#Lesson13\\Models\\posts.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-31T10:55:52.871Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Program.cs",
               "RelativeDocumentMoniker": "C#Lesson13\\Program.cs",
               "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Program.cs",
               "RelativeToolTip": "C#Lesson13\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T13:16:30.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "users.json",
+              "DocumentMoniker": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\users.json",
+              "RelativeDocumentMoniker": "C#Lesson13\\Models\\users.json",
+              "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\users.json",
+              "RelativeToolTip": "C#Lesson13\\Models\\users.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-31T10:36:48.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Post.cs",
+              "DocumentMoniker": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\Post.cs",
+              "RelativeDocumentMoniker": "C#Lesson13\\Models\\Post.cs",
+              "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\Post.cs",
+              "RelativeToolTip": "C#Lesson13\\Models\\Post.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAADQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T14:43:26.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "C#Lesson13\\Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\Ferid\\Desktop\\C#\\C#Lesson13\\C#Lesson13\\Models\\Admin.cs",
+              "RelativeToolTip": "C#Lesson13\\Models\\Admin.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAABYAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T13:17:18.543Z",
               "EditorCaption": ""
             }
           ]
