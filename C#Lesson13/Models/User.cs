@@ -11,7 +11,7 @@ namespace UserNamespace
 {
     public class User
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Username {  get; set; }
@@ -22,8 +22,9 @@ namespace UserNamespace
 
         public User() { }
 
-        public User(string username, string password)
+        public User(Guid Id, string username, string password)
         {
+            
             Username = username;    
             Password = password;
         }

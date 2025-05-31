@@ -1,13 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Text.Json;
+﻿using System.Text.Json;
 using AdminNamespace;
 using UserNamespace;
 using UserManagerNamespace;
 using PostNamespace;
-using System.Collections.Generic;
 
-public class HelloWorld
+public class MainClass
 {
     static int ShowArrowMenu(string[] options)
     {
@@ -76,7 +73,7 @@ public class HelloWorld
                     Console.WriteLine("✅ Admin login successful!");
                     while (true)
                     {
-                        string[] adminOptions = { "Create new post", "Show all posts", "Exit" };
+                        string[] adminOptions = { "Create new post", "Show all posts", "Show all notifications", "Exit" };
                         int adminChoice = ShowArrowMenu(adminOptions);
 
                         if (adminChoice == 0)
@@ -102,6 +99,12 @@ public class HelloWorld
                             Console.ReadKey();
                         }
                         else if (adminChoice == 2)
+                        {
+                            admin.ShowAllNotifications();
+                            Console.WriteLine("\nPress any key to return...");
+                            Console.ReadKey();
+                        }
+                        else if (adminChoice == 3)
                         {
                             Console.WriteLine("Returning to main menu...");
                             break;

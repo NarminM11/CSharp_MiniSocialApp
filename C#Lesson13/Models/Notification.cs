@@ -26,15 +26,29 @@ namespace NotificationNamespace
 
         public void AddNotification()
         {
+            var lines = File.Exists(FilePath) ? File.ReadAllLines(FilePath) : Array.Empty<string>();
+            int lastNo = 0;
+
+            //sonuncu bildirisin nomresini qaytarir, ki sira ile saysin
+            if (lines.Length > 0)
+            {
+                string lastLine = lines[^1];
+                string[] parts = lastLine.Split('|');
+                if (parts.Length > 0 && int.TryParse(parts[0].Trim(), out int parsedNo))
+                {
+                    lastNo = parsedNo;
+                }
+            }
+
+            No = lastNo + 1;
+
             Notifications.Add(this);
             string line = $"{No} | {Text} | {DateTime} | {FromUser}";
             File.AppendAllText(FilePath, line + Environment.NewLine);
             Console.WriteLine("🔔 Notification sent: " + line);
         }
 
-        public static List<Notification> GetAllNotifications()
-        {
-            return Notifications;
-        }
+
+      
     }
 }

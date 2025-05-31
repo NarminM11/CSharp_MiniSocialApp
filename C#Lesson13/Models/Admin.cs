@@ -13,7 +13,7 @@ namespace AdminNamespace
 {
     public class Admin
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string username { get; set; }
 
         public string Password { get; set; }
@@ -78,7 +78,7 @@ namespace AdminNamespace
             return posts;
         }
 
-        public virtual void ShowAllPosts()
+        public void ShowAllPosts()
         {
             string path = @"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\posts.json";
 
@@ -116,5 +116,33 @@ namespace AdminNamespace
                 Console.WriteLine($"⚠️ An error occurred while reading posts.: {ex.Message}");
             }
         }
+
+        public void ShowAllNotifications()
+        {
+            string path = @"C:\Users\Ferid\Desktop\C#\C#Lesson13\C#Lesson13\Models\notifications.json";
+            if (!File.Exists(path))
+            {
+                Console.WriteLine("📭 No notifications found.");
+                return;
+            }
+
+            var lines = File.ReadAllLines(path);
+
+            if (lines.Length == 0)
+            {
+                Console.WriteLine("📭 No notifications to show.");
+                return;
+            }
+
+            Console.WriteLine("\n──────────── ALL NOTIFICATIONS ────────────");
+
+            foreach (var line in lines)
+            {
+                Console.WriteLine("🔔 " + line);
+            }
+
+            Console.WriteLine("────────────────────────────────────────────");
+        }
+
     }
 }
